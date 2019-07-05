@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/car');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes(['register' => false]);
+
+Route::resource('/car', 'CarController', ['middleware' => 'auth']);
